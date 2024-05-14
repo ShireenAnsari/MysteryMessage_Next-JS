@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-
+import mongoose from "mongoose"
 type connectionObject={isConnected?:number}
 
 const connection:connectionObject={}
@@ -12,7 +11,7 @@ if(connection.isConnected)
     try {
     const db= await mongoose.connect(process.env.MONGODB_URI || '');
     connection.isConnected=db.connections[0].readyState
-        console.log('Db connectec Successfully');
+        console.log('Db connected Successfully');
     } catch (error) {
         console.log('Database connection failed',error);
         process.exit(1)
